@@ -1,0 +1,31 @@
+@import '/vendor/filament/filament/resources/css/theme.css';
+@config 'tailwind.config.js';
+
+/* Основные цвета */
+:root {
+    --primary-500: #ec489a;
+    --primary-600: #db2777;
+    --secondary-500: #06b6d4;
+}
+
+
+
+.fi-sidebar-nav {
+    @apply bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900;
+}
+
+.fi-sidebar-nav .fi-sidebar-item {
+    @apply mx-3 my-1 rounded-lg transition-all duration-300;
+}
+
+.fi-sidebar-nav .fi-sidebar-item .fi-sidebar-item-label {
+    @apply text-gray-200;
+}
+
+.fi-sidebar-nav .fi-sidebar-item:hover {
+    @apply bg-white/10 transform scale-x-105;
+}
+
+.fi-sidebar-nav .fi-sidebar-item-active {
+    @apply bg-gradient-to-r from-pink-500 to-rose-500 shadow-lg;
+}

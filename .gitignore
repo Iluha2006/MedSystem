@@ -1,0 +1,15 @@
+/vendor
+/node_modules
+.env
+.env.backup
+.env.production
+*.log
+.DS_Store
+.phpunit.result.cache
+/.idea
+/.vscode
+/storage/*.key
+Thumbs.db
+Homestead.json
+Homestead.yaml
+node_modules
