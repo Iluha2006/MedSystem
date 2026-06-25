@@ -16,8 +16,10 @@ class DepartmentResource extends Resource
 {
     protected static ?string $model = Department::class;
              
-     protected static ?string $modelLabel = 'Отделы';
+     protected static ?string $modelLabel = 'Отдел';
+    protected static ?string $pluralModelLabel = 'Отделы';
     protected static ?string $navigationLabel = 'Отделы';
+    protected static ?string $navigationGroup = 'Организации';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -98,7 +100,7 @@ class DepartmentResource extends Resource
         return [
             'index' => ListDepartments::route('/'),
             'create' => CreateDepartment::route('/create'),
-            'view' => ViewDepartment::route('/{record}'),
+          
             'edit' => EditDepartment::route('/{record}/edit'),
         ];
     }

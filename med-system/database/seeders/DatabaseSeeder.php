@@ -16,19 +16,23 @@ class DatabaseSeeder extends Seeder
    
         $this->call(RolesSeeder::class);
         
- 
         $this->call(FacilitySeeder::class);
         $this->call(BuildingSeeder::class);
         $this->call(DepartmentSeeder::class);
         $this->call(WardSeeder::class);
         $this->call(BedSeeder::class);
-        
-    
+        $this->call(CabinetSeeder::class);
+
         $this->call(LaboratorySeeder::class);
         
     
         $this->call(DoctorSeeder::class);
+        $this->call(DoctorFacilitySeeder::class);
         $this->call(PatientSeeder::class);
+        
+        $this->call(OutpatientVisitSeeder::class);
+        $this->call(OperationSeeder::class);
+        $this->call(InpatientStaySeeder::class);
         
         $this->command->info('🎉 Все сидеры выполнены!');
     }

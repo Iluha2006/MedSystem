@@ -22,11 +22,11 @@ class DoctorFacilityResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationLabel = 'Места работы врачей';
+    protected static ?string $navigationLabel = 'Место работы врача';
 
     protected static ?string $modelLabel = 'Место работы';
 
-    protected static ?string $pluralModelLabel = 'Места работы врачей';
+    protected static ?string $pluralModelLabel = 'Места работы врача';
 
     public static function form(Form $form): Form
     {
@@ -46,9 +46,7 @@ class DoctorFacilityResource extends Resource
                     ->searchable()
                     ->preload(),
                 
-                Forms\Components\Toggle::make('is_main_job')
-                    ->label('Основное место работы')
-                    ->default(true),
+               
                 
                 Forms\Components\Select::make('role')
                     ->label('Роль в учреждении')
@@ -75,16 +73,11 @@ class DoctorFacilityResource extends Resource
                     ->sortable()
                     ->searchable(),
                 
-                Tables\Columns\IconColumn::make('is_main_job')
-                    ->boolean()
-                    ->trueColor('success')
-                    ->falseColor('warning')
-                    ->label('Основное'),
-                
+
                 Tables\Columns\TextColumn::make('role')
                     ->label('Роль')
                     ->formatStateUsing(fn($state) => match($state) {
-                        'attending' => 'Лечащий врач',
+                        'attending' => 'Врач',
                         'consultant' => 'Консультант',
                         default => $state,
                     })
@@ -103,9 +96,7 @@ class DoctorFacilityResource extends Resource
                 Tables\Filters\SelectFilter::make('facility')
                     ->relationship('facility', 'name')
                     ->label('Учреждение'),
-                
-                Tables\Filters\TernaryFilter::make('is_main_job')
-                    ->label('Основное место'),
+               
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

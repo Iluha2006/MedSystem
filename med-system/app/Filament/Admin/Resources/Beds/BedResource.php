@@ -17,7 +17,7 @@ class BedResource extends Resource
     
   
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Койки';
+    protected static ?string $navigationLabel = 'Койка';
     protected static ?string $navigationGroup = 'Стационар';
     protected static ?int $navigationSort = 2;
     

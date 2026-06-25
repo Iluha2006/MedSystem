@@ -17,13 +17,10 @@ class FacilityResource extends Resource
     protected static ?string $model = Facility::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
-    
-  
-    
-    protected static ?string $modelLabel = 'Больницы';
-    
-protected static ?string $navigationGroup = 'Организации';
-protected static ?string $navigationLabel = 'Учреждения';
+    protected static ?string $modelLabel = 'Больница';
+    protected static ?string $pluralModelLabel = 'Больницы';
+    protected static ?string $navigationGroup = 'Организация';
+    protected static ?string $navigationLabel = 'Учреждение';
 
 
     public static function form(Form $form): Form
@@ -41,11 +38,7 @@ protected static ?string $navigationLabel = 'Учреждения';
                     ])
                     ->required()
                     ->label('Тип'),
-                \Filament\Forms\Components\Select::make('parent_hospital_id')
-                    ->relationship('parentHospital', 'name')
-                    ->label('Головная больница')
-                    ->searchable()
-                    ->preload(),
+              
                 \Filament\Forms\Components\Textarea::make('address')
                     ->maxLength(65535)
                     ->label('Адрес')
@@ -64,8 +57,7 @@ protected static ?string $navigationLabel = 'Учреждения';
                 \Filament\Tables\Columns\TextColumn::make('type')
                     ->formatStateUsing(fn ($state) => $state === 'hospital' ? 'Больница' : 'Поликлиника')
                     ->label('Тип'),
-                \Filament\Tables\Columns\TextColumn::make('parentHospital.name')
-                    ->label('Головная больница'),
+              
                 \Filament\Tables\Columns\TextColumn::make('address')
                     ->limit(50)
                     ->label('Адрес'),
@@ -84,15 +76,14 @@ protected static ?string $navigationLabel = 'Учреждения';
                     ->label('Тип'),
             ])
             ->actions([
-                \Filament\Tables\Actions\ViewAction::make()
-                    ->label('')
-                    ->tooltip('Просмотр'),
+               
                 \Filament\Tables\Actions\EditAction::make()
                     ->label('')
                     ->tooltip('Редактировать'),
                 \Filament\Tables\Actions\DeleteAction::make()
                     ->label('')
-                    ->tooltip('Удалить'),
+                   
+                    ->modalHeading('Удалить запись')
             ])
             ->bulkActions([
                 \Filament\Tables\Actions\BulkActionGroup::make([
@@ -112,9 +103,10 @@ protected static ?string $navigationLabel = 'Учреждения';
     public static function getPages(): array
     {
         return [
-            'index' => ListFacilities::route('/'),
+          
             'create' => CreateFacility::route('/create'),
-            'view' => ViewFacility::route('/{record}'),
+               'index' => ListFacilities::route('/'),
+          
             'edit' => EditFacility::route('/{record}/edit'),
         ];
     }

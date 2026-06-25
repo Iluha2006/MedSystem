@@ -115,7 +115,7 @@ export default function VisitsCreate({ doctors, auth }) {
                    
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                                    Дата и время *
+                                    Дата и время 
                                 </label>
                                 <input
                                     type="datetime-local"

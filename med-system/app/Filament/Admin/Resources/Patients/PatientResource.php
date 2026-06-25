@@ -40,10 +40,7 @@ class PatientResource extends Resource
                     ->label('Возраст'),
                 \Filament\Forms\Components\DatePicker::make('birth_date')
                     ->label('Дата рождения'),
-                \Filament\Forms\Components\Textarea::make('medical_history')
-                    ->label('История болезни')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
+
             ]);
     }
 

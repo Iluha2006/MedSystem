@@ -12,9 +12,16 @@ return new class extends Migration
             $table->id();
                $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->foreignId('degree_id')->nullable();
-            $table->foreignId('academic_title_id')->nullable();
-            $table->foreignId('specialty_id');
+           $table->foreignId('degree_id')
+        ->nullable()
+        ->constrained('degrees')
+        ->nullOnDelete();
+    
+    $table->foreignId('academic_title_id')
+        ->nullable()
+        ->constrained('academic_titles')
+        ->nullOnDelete();
+            $table->foreignId('specialty_id')->nullable()->constrained('specialties'); 
             $table->integer('experience_years')->default(0);
             $table->decimal('hazard_coeff', 3, 2)->default(0);
             $table->integer('surgeries_performed')->nullable();

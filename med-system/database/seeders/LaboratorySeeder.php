@@ -15,6 +15,11 @@ class LaboratorySeeder extends Seeder
             ['name' => 'Химическая лаборатория', 'profile' => 'chemical'],
             ['name' => 'Биохимическая лаборатория №2', 'profile' => 'biochemical'],
             ['name' => 'Центральная физиологическая лаборатория', 'profile' => 'physiological'],
+            ['name' => 'Клиническая лаборатория', 'profile' => 'biochemical'],
+            ['name' => 'Лаборатория функциональной диагностики', 'profile' => 'physiological'],
+            ['name' => 'Микробиологическая лаборатория', 'profile' => 'chemical'],
+            ['name' => 'Иммунологическая лаборатория', 'profile' => 'biochemical'],
+            ['name' => 'Патоморфологическая лаборатория', 'profile' => 'chemical'],
         ];
 
         foreach ($laboratories as $laboratory) {

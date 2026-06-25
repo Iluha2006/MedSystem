@@ -30,7 +30,7 @@ class EditDepartment extends EditRecord
             ->success()
             ->title("Отделение обновлено")
             ->body("Отделение \"{$this->record->name}\" успешно изменено")
-            ->duration(5000);
+            ->duration(20000);
     }
 
       protected function getRedirectUrl(): string

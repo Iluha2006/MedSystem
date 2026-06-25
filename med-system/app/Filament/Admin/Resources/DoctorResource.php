@@ -5,12 +5,10 @@ namespace App\Filament\Admin\Resources;
 use App\Filament\Admin\Resources\Doctors\Pages\CreateDoctor;
 use App\Filament\Admin\Resources\Doctors\Pages\EditDoctor;
 use App\Filament\Admin\Resources\Doctors\Pages\ListDoctors;
-use App\Filament\Admin\Resources\Doctors\Pages\ViewDoctor;
 use App\Models\Doctor;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Model;
 
 class DoctorResource extends Resource
 {
@@ -93,15 +91,15 @@ class DoctorResource extends Resource
     {
         return $table
             ->columns([
-                \Filament\Tables\Columns\TextColumn::make('name')
-                    ->searchable()
-                    ->sortable()
-                    ->label('ФИО'),
-                    
                 \Filament\Tables\Columns\TextColumn::make('specialty.name')
                     ->searchable()
                     ->sortable()
                     ->label('Специальность'),
+                    
+                \Filament\Tables\Columns\TextColumn::make('name')
+                    ->searchable()
+                    ->sortable()
+                    ->label('ФИО'),
                     
                 \Filament\Tables\Columns\TextColumn::make('degree.name')
                     ->label('Ученая степень'),
@@ -146,13 +144,14 @@ class DoctorResource extends Resource
                     ->label('Стаж'),
             ])
             ->actions([
-                \Filament\Tables\Actions\ViewAction::make(),
                 \Filament\Tables\Actions\EditAction::make(),
-                \Filament\Tables\Actions\DeleteAction::make(),
+                \Filament\Tables\Actions\DeleteAction::make()
+                    ->modalHeading('Удалить запись'),
             ])
             ->bulkActions([
                 \Filament\Tables\Actions\BulkActionGroup::make([
-                    \Filament\Tables\Actions\DeleteBulkAction::make(),
+                    \Filament\Tables\Actions\DeleteBulkAction::make()
+                        ->modalHeading('Удалить отмеченные записи'),
                 ]),
             ]);
     }
@@ -167,28 +166,8 @@ class DoctorResource extends Resource
         return [
             'index' => ListDoctors::route('/'),
             'create' => CreateDoctor::route('/create'),
-            'view' => ViewDoctor::route('/{record}'),
             'edit' => EditDoctor::route('/{record}/edit'),
         ];
     }
 
-    public static function canViewAny(): bool
-    {
-        return auth()->user()->can('view doctors');
-    }
-
-    public static function canCreate(): bool
-    {
-        return auth()->user()->can('create doctors');
-    }
-
-    public static function canEdit(Model $record): bool
-    {
-        return auth()->user()->can('update doctors');
-    }
-
-    public static function canDelete(Model $record): bool
-    {
-        return auth()->user()->can('delete doctors');
-    }
 }

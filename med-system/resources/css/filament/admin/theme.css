@@ -1,7 +1,7 @@
 @import '/vendor/filament/filament/resources/css/theme.css';
 @config 'tailwind.config.js';
 
-/* Основные цвета */
+
 :root {
     --primary-500: #ec489a;
     --primary-600: #db2777;

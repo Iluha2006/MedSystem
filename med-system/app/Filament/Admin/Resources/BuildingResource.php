@@ -24,10 +24,11 @@ class BuildingResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-   protected static ?string $modelLabel = 'Корпуса';
+   protected static ?string $modelLabel = 'Корпус';
+   protected static ?string $pluralModelLabel = 'Корпуса';
 
    protected static ?string $navigationGroup = 'Организации';
-protected static ?string $navigationLabel = 'Корпуса';
+protected static ?string $navigationLabel = 'Корпус';
    
 
     public static function form(Form $form): Form

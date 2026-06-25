@@ -196,7 +196,7 @@ class OutpatientVisitResource extends Resource
                     ->label('Дата приёма'),
             ])
             ->actions([
-                \Filament\Tables\Actions\ViewAction::make(),
+                
                 \Filament\Tables\Actions\EditAction::make(),
                 \Filament\Tables\Actions\DeleteAction::make(),
             ])

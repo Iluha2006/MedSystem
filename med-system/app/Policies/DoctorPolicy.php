@@ -22,24 +22,18 @@ class DoctorPolicy
    
     public function create(User $user): bool
     {
-        return $user->isAdmin();
+        return true;
     }
     
    
     public function update(User $user, Doctor $doctor): bool
     {
-        
-        if ($user->isAdmin()) return true;
-        
-      
-        if ($user->isDoctor() && $user->id === $doctor->user_id) return true;
-        
-        return false;
+        return true;
     }
     
     
     public function delete(User $user, Doctor $doctor): bool
     {
-        return $user->isAdmin();
+        return true;
     }
 }

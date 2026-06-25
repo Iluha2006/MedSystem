@@ -14,6 +14,7 @@ class AcademicTitleSeeder extends Seeder
             ['name' => 'Доцент'],
             ['name' => 'Ассистент'],
             ['name' => 'Без звания'],
+            ['name' => 'Старший преподаватель'],
         ];
 
         foreach ($titles as $title) {

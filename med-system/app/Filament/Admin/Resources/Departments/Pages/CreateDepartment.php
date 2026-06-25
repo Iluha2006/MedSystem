@@ -12,6 +12,8 @@ class CreateDepartment extends CreateRecord
 {
     protected static string $resource = DepartmentResource::class;
 
+    protected static bool $canCreateAnother = false;
+
     
     #[Override]
     protected function getCreatedNotification(): ?Notification

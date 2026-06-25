@@ -8,4 +8,6 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateFacility extends CreateRecord
 {
     protected static string $resource = FacilityResource::class;
+
+    protected static bool $canCreateAnother = false;
 }

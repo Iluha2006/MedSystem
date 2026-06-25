@@ -26,11 +26,7 @@ class StatsOverview extends BaseWidget
                 ->descriptionIcon('heroicon-o-user-group')
                 ->color('primary'),
             
-            Stat::make('Записи ', OutpatientVisit::whereDate('visit_date', today())->count())
-               
-                ->descriptionIcon('heroicon-o-calendar')
-                ->color('warning'),
-                 
+          
             Stat::make('Операции', Operation::count())
                 ->description('Всего проведено')
                 ->descriptionIcon('heroicon-o-chart-bar')

@@ -18,6 +18,11 @@ class BuildingSeeder extends Seeder
             ['facility_id' => 2, 'name' => 'Стационар'],
             ['facility_id' => 3, 'name' => 'Поликлиника'],
             ['facility_id' => 4, 'name' => 'Детский корпус'],
+            ['facility_id' => 5, 'name' => 'Кардиологический корпус'],
+            ['facility_id' => 6, 'name' => 'Онкологический корпус'],
+            ['facility_id' => 7, 'name' => 'Стоматологический корпус'],
+            ['facility_id' => 8, 'name' => 'Инфекционный корпус'],
+            ['facility_id' => 9, 'name' => 'Родильный корпус'],
         ];
 
         foreach ($buildings as $building) {

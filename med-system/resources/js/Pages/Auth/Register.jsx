@@ -48,7 +48,7 @@ export default function Register() {
                  
                     <div className="text-center">
                         <h3 className="text-xl font-semibold text-gray-800">Регистрация</h3>
-                        <p className="text-sm text-gray-500 mt-1">Создайте новый аккаунт</p>
+                       
                     </div>
 
                     <form onSubmit={submit} className="mt-8 space-y-6">
@@ -64,7 +64,6 @@ export default function Register() {
                                     isFocused={true}
                                     onChange={(e) => setData('name', e.target.value)}
                                     placeholder="Иванов Иван Иванович"
-                                    required
                                 />
                                 <InputError message={errors.name} className="mt-2" />
                             </div>
@@ -80,7 +79,6 @@ export default function Register() {
                                     autoComplete="username"
                                     onChange={(e) => setData('email', e.target.value)}
                                     placeholder="user@example.com"
-                                    required
                                 />
                                 <InputError message={errors.email} className="mt-2" />
                             </div>
@@ -96,7 +94,6 @@ export default function Register() {
                                     autoComplete="new-password"
                                     onChange={(e) => setData('password', e.target.value)}
                                     placeholder="••••••••"
-                                    required
                                 />
                                 <InputError message={errors.password} className="mt-2" />
                             </div>
@@ -112,7 +109,6 @@ export default function Register() {
                                     autoComplete="new-password"
                                     onChange={(e) => setData('password_confirmation', e.target.value)}
                                     placeholder="••••••••"
-                                    required
                                 />
                                 <InputError message={errors.password_confirmation} className="mt-2" />
                             </div>

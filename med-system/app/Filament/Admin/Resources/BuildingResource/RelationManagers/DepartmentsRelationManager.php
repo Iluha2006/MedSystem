@@ -21,10 +21,11 @@ class DepartmentsRelationManager extends RelationManager
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255)
-                    ->label('Название отдела'),
-                Forms\Components\Textarea::make('description')
-                    ->label('Описание')
-                    ->columnSpanFull(),
+                    ->label('Название отделения'),
+                Forms\Components\TextInput::make('specialization')
+                    ->required()
+                    ->maxLength(255)
+                    ->label('Специализация'),
             ]);
     }
 
@@ -36,9 +37,6 @@ class DepartmentsRelationManager extends RelationManager
                     ->searchable()
                     ->sortable()
                     ->label('Отдел'),
-                Tables\Columns\TextColumn::make('wards_count')
-                    ->counts('wards')
-                    ->label('Палат'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime('d.m.Y H:i')
                     ->label('Создан')

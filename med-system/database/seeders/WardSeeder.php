@@ -9,10 +9,12 @@ class WardSeeder extends Seeder
 {
     public function run(): void
     {
-        for ($i = 1; $i <= 5; $i++) {
+        $departmentIds = \App\Models\Department::pluck('id')->toArray();
+
+        for ($i = 1; $i <= 10; $i++) {
             Ward::create([
-                'department_id' => rand(1, 5),
-                'ward_number' => $i,
+                'department_id' => $departmentIds[array_rand($departmentIds)],
+                'ward_number' => (string) $i,
                 'capacity' => rand(2, 6),
             ]);
         }

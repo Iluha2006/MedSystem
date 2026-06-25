@@ -21,15 +21,7 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    <div>
-                        <h3 className="text-lg font-semibold mb-4">Услуги</h3>
-                        <ul className="space-y-2 text-gray-400">
-                            <li><a href="#services" className="hover:text-white transition">Консультация врача</a></li>
-                            <li><a href="#services" className="hover:text-white transition">Диагностика</a></li>
-                            <li><a href="#services" className="hover:text-white transition">Лабораторные исследования</a></li>
-                            <li><a href="#services" className="hover:text-white transition">Выписка рецептов</a></li>
-                        </ul>
-                    </div>
+                   
 
                   
                     <div>

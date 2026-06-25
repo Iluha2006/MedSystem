@@ -13,11 +13,7 @@ use App\Policies\AppointmentPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
-    protected $policies = [
-        Patient::class => PatientPolicy::class,
-        Doctor::class => DoctorPolicy::class,
-        OutpatientVisit::class => AppointmentPolicy::class,
-    ];
+    protected $policies = [];
 
     public function boot(): void
     {

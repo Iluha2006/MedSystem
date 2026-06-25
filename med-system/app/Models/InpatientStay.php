@@ -9,8 +9,7 @@ class InpatientStay extends Model
 {
     protected $fillable = [
         'patient_id',
-        'bed_id',
-        'attending_doctor_id',
+        'doctor_id',
         'admission_date',
         'discharge_date',
         'condition',
@@ -34,13 +33,8 @@ class InpatientStay extends Model
         return $this->belongsTo(Patient::class);
     }
 
-    public function bed(): BelongsTo
-    {
-        return $this->belongsTo(Bed::class);
-    }
-
     public function attendingDoctor(): BelongsTo
     {
-        return $this->belongsTo(Doctor::class, 'attending_doctor_id');
+        return $this->belongsTo(Doctor::class, 'doctor_id');
     }
 }

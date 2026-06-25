@@ -55,11 +55,7 @@ export default function AppointmentCard({
                     <InfoButton onClick={() => onEdit(appointment)}>
                         Обработать
                     </InfoButton>
-                    {!isFinished && (
-                        <SuccessButton onClick={() => onComplete(appointment)}>
-                            Завершить
-                        </SuccessButton>
-                    )}
+                    
                     {!isFinished && (
                         <DangerButton onClick={() => onCancel(appointment.id)}>
                             Отменить

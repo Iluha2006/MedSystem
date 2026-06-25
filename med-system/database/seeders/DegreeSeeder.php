@@ -13,6 +13,8 @@ class DegreeSeeder extends Seeder
             ['name' => 'Доктор медицинских наук'],
             ['name' => 'Кандидат медицинских наук'],
             ['name' => 'Без степени'],
+            ['name' => 'Магистр медицины'],
+            ['name' => 'Бакалавр медицины'],
         ];
 
         foreach ($degrees as $degree) {

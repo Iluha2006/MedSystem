@@ -8,4 +8,6 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateBed extends CreateRecord
 {
     protected static string $resource = BedResource::class;
+
+    protected static bool $canCreateAnother = false;
 }

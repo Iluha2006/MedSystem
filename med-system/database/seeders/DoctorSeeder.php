@@ -20,6 +20,11 @@ class DoctorSeeder extends Seeder
             ['name' => 'Сидорова Анна Сергеевна', 'email' => 'sidorova@doctor.com', 'specialty' => 'Невролог', 'exp' => 15],
             ['name' => 'Кузнецова Елена Владимировна', 'email' => 'kuznetsova@doctor.com', 'specialty' => 'Терапевт', 'exp' => 12],
             ['name' => 'Смирнов Дмитрий Николаевич', 'email' => 'smirnov@doctor.com', 'specialty' => 'Педиатр', 'exp' => 10],
+            ['name' => 'Козлов Андрей Михайлович', 'email' => 'kozlov@doctor.com', 'specialty' => 'Офтальмолог', 'exp' => 18],
+            ['name' => 'Морозова Ольга Игоревна', 'email' => 'morozova@doctor.com', 'specialty' => 'Отоларинголог', 'exp' => 14],
+            ['name' => 'Волков Сергей Павлович', 'email' => 'volkov@doctor.com', 'specialty' => 'Дерматолог', 'exp' => 22],
+            ['name' => 'Белова Татьяна Викторовна', 'email' => 'belova@doctor.com', 'specialty' => 'Эндокринолог', 'exp' => 16],
+            ['name' => 'Зайцева Марина Алексеевна', 'email' => 'zaytseva@doctor.com', 'specialty' => 'Гинеколог', 'exp' => 19],
         ];
 
         $specialtyMap = Specialty::pluck('id', 'name')->toArray();

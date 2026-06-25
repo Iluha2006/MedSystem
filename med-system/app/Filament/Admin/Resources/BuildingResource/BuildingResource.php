@@ -21,11 +21,11 @@ class BuildingResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
 
-    protected static $navigationGroup = 'Учреждения';
+    protected static $navigationGroup = 'Учреждение';
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationLabel = 'Корпуса';
+    protected static ?string $navigationLabel = 'Корпус';
 
     protected static ?string $modelLabel = 'Корпус';
 

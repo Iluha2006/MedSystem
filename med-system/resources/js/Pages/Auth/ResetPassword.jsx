@@ -15,7 +15,6 @@ export default function ResetPassword({ token, email }) {
 
     const submit = (e) => {
         e.preventDefault();
-
         post(route('password.store'), {
             onFinish: () => reset('password', 'password_confirmation'),
         });
@@ -23,72 +22,92 @@ export default function ResetPassword({ token, email }) {
 
     return (
         <GuestLayout>
-            <Head title="Reset Password" />
+            <Head title="Смена пароля" />
 
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
+            <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r">
+                <div className="max-w-md w-full space-y-8 bg-white rounded-2xl shadow-2xl p-8">
+                    <div className="text-center">
+                        <div className="flex justify-center">
+                            <div className="h-16 w-16 bg-gradient-to-r from-blue-600 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                <svg className="h-10 w-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+                            MedSystem
+                        </h2>
+                        <p className="mt-2 text-sm text-gray-600">
+                            Медицинская информационная система
+                        </p>
+                    </div>
 
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        onChange={(e) => setData('email', e.target.value)}
-                    />
+                    <div className="text-center">
+                        <h3 className="text-xl font-semibold text-gray-800">Смена пароля</h3>
+                        <p className="text-sm text-gray-500 mt-1">
+                            Введите новый пароль для вашей учетной записи
+                        </p>
+                    </div>
 
-                    <InputError message={errors.email} className="mt-2" />
+                    <form onSubmit={submit} className="mt-8 space-y-6">
+                        <div>
+                            <InputLabel htmlFor="email" value="Email" className="text-gray-700 font-medium" />
+                            <TextInput
+                                id="email"
+                                type="email"
+                                name="email"
+                                value={data.email}
+                                className="mt-1 block w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 bg-gray-50"
+                                autoComplete="username"
+                                onChange={(e) => setData('email', e.target.value)}
+                                disabled
+                            />
+                            <InputError message={errors.email} className="mt-2" />
+                        </div>
+
+                        <div>
+                            <InputLabel htmlFor="password" value="Новый пароль" className="text-gray-700 font-medium" />
+                            <TextInput
+                                id="password"
+                                type="password"
+                                name="password"
+                                value={data.password}
+                                className="mt-1 block w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                                autoComplete="new-password"
+                                isFocused={true}
+                                onChange={(e) => setData('password', e.target.value)}
+                                placeholder="••••••••"
+                            />
+                            <InputError message={errors.password} className="mt-2" />
+                        </div>
+
+                        <div>
+                            <InputLabel htmlFor="password_confirmation" value="Подтверждение пароля" className="text-gray-700 font-medium" />
+                            <TextInput
+                                type="password"
+                                id="password_confirmation"
+                                name="password_confirmation"
+                                value={data.password_confirmation}
+                                className="mt-1 block w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                                autoComplete="new-password"
+                                onChange={(e) => setData('password_confirmation', e.target.value)}
+                                placeholder="••••••••"
+                            />
+                            <InputError message={errors.password_confirmation} className="mt-2" />
+                        </div>
+
+                        <div>
+                            <PrimaryButton
+                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                disabled={processing}
+                            >
+                                {processing ? 'Сброс...' : 'Сбросить пароль'}
+                            </PrimaryButton>
+                        </div>
+                    </form>
                 </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        isFocused={true}
-                        onChange={(e) => setData('password', e.target.value)}
-                    />
-
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel
-                        htmlFor="password_confirmation"
-                        value="Confirm Password"
-                    />
-
-                    <TextInput
-                        type="password"
-                        id="password_confirmation"
-                        name="password_confirmation"
-                        value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) =>
-                            setData('password_confirmation', e.target.value)
-                        }
-                    />
-
-                    <InputError
-                        message={errors.password_confirmation}
-                        className="mt-2"
-                    />
-                </div>
-
-                <div className="mt-4 flex items-center justify-end">
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Reset Password
-                    </PrimaryButton>
-                </div>
-            </form>
+            </div>
         </GuestLayout>
     );
 }
